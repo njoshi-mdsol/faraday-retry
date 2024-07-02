@@ -145,6 +145,7 @@ module Faraday
 
       # @param env [Faraday::Env]
       def call(env)
+        Rails.logger.info "[From forked Faraday retry middleware] #{env}"
         retries = @options.max
         request_body = env[:body]
         begin
